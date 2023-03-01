@@ -51,7 +51,7 @@ describe("rss 2.0", () => {
         },
       ],
       date: updated,
-      image: { url: "https://example.com/hello-world.jpg", length: 12665 },
+      image: { url: "https://example.com/hello-world.jpg", type: "image/jpeg", isFormatOf: "https://example.com/hello-world" },
       published,
     });
     const actual = sampleFeed.rss2();
@@ -152,7 +152,7 @@ describe("rss 2.0", () => {
         },
       ],
       date: updated,
-      audio: { url: "https://example.com/hello-world.mp3", length: 12665, type: "audio/mpeg" },
+      audio: { url: "https://example.com/hello-world.mp3", type: "audio/mpeg", isFormatOf: "https://example.com/hello-world" },
       published,
     });
     const actual = sampleFeed.rss2();
@@ -221,7 +221,7 @@ describe("rss 2.0", () => {
         },
       ],
       date: updated,
-      video: "https://example.com/hello-world.mp4",
+      video: { url: "https://example.com/hello-world.mp4", type: "video/mp4", isFormatOf: "https://example.com/hello-world" },
       published,
     });
     const actual = sampleFeed.rss2();

@@ -10,9 +10,9 @@ export interface Item {
 
   guid?: string;
 
-  image?: string | Enclosure;
-  audio?: string | Enclosure;
-  video?: string | Enclosure;
+  image?: Media;
+  audio?: Media;
+  video?: Media;
   enclosure?: Enclosure;
 
   author?: Author[];
@@ -22,6 +22,7 @@ export interface Item {
   copyright?: string;
 
   extensions?: Extension[];
+  dcterms?: Dcterms;
 }
 
 export interface Enclosure {
@@ -69,4 +70,19 @@ export interface FeedOptions {
 export interface Extension {
   name: string;
   objects: any;
+}
+export interface Dcterms {
+  identifier?: string;
+  publisher: string;
+  license?: string;
+  accessRights: string;
+  format: string;
+  creator?: string;
+  contributor?: string;
+}
+
+export interface Media {
+  url: string;
+  type: string;
+  isFormatOf: string;
 }

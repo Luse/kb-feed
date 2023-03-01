@@ -116,7 +116,7 @@ export default (ins: Feed) => {
   base.rss.channel.item = [];
 
   ins.items.map((entry: Item) => {
-    let item: any = {};
+    const item: any = {};
 
     if (entry.title) {
       item.title = { _cdata: entry.title };
@@ -144,6 +144,29 @@ export default (ins: Feed) => {
 
     if (entry.description) {
       item.description = { _cdata: entry.description };
+    }
+    if (entry.dcterms) {
+      if (entry.dcterms.contributor) {
+        item["dcterms:contributor"] = { _text: entry.dcterms.contributor };
+      }
+      if (entry.dcterms.format) {
+        item["dcterms:format"] = { _text: entry.dcterms.format };
+      }
+      if (entry.dcterms.accessRights) {
+        item["dcterms:accessRights"] = { _text: entry.dcterms.accessRights };
+      }
+      if (entry.dcterms.creator) {
+        item["dcterms:creator"] = { _text: entry.dcterms.creator };
+      }
+      if (entry.dcterms.format) {
+        item["dcterms:format"] = { _text: entry.dcterms.format };
+      }
+      if (entry.dcterms.publisher) {
+        item["dcterms:publisher"] = { _text: entry.dcterms.publisher };
+      }
+      if (entry.dcterms.license) {
+        item["dcterms:license"] = { _text: entry.dcterms.license };
+      }
     }
 
     if (entry.content) {
@@ -182,7 +205,13 @@ export default (ins: Feed) => {
     }
 
     if (entry.image) {
-      item.enclosure = formatEnclosure(entry.image, "image");
+      item['media:content'] = {
+        _attributes: {
+          url: entry.image.url,
+          type: entry.image.type,
+        },
+        'dcterms:isFormatOf': { _text: entry.image.url },
+      }
     }
 
     if (entry.audio) {
@@ -200,6 +229,9 @@ export default (ins: Feed) => {
     base.rss._attributes["xmlns:dc"] = "http://purl.org/dc/elements/1.1/";
     base.rss._attributes["xmlns:content"] = "http://purl.org/rss/1.0/modules/content/";
   }
+
+  base.rss._attributes["xmlns:dcterms"] = "http://purl.org/dc/terms/"
+  base.rss._attributes["xmlns:media"] = "http://search.yahoo.com/mrss/"
 
   if (isAtom) {
     base.rss._attributes["xmlns:atom"] = "http://www.w3.org/2005/Atom";

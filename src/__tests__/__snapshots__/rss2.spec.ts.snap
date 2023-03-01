@@ -2,7 +2,7 @@
 
 exports[`rss 2.0 should generate a valid feed 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
-<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
+<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:dcterms=\\"http://purl.org/dc/terms/\\" xmlns:media=\\"http://search.yahoo.com/mrss/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
     <channel>
         <title>Feed Title</title>
         <link>http://example.com/</link>
@@ -31,7 +31,10 @@ exports[`rss 2.0 should generate a valid feed 1`] = `
             <author>joesmith@example.com (Joe Smith)</author>
             <category>Grateful Dead</category>
             <category domain=\\"http://www.fool.com/cusips\\">MSFT</category>
-            <enclosure url=\\"https://example.com/hello-world.jpg\\" length=\\"0\\" type=\\"image/jpg\\"/>
+            <enclosure length=\\"12665\\" type=\\"image/jpeg\\" url=\\"https://example.com/hello-world.jpg\\"/>
+            <media:content url=\\"https://example.com/hello-world.jpg\\" type=\\"image/jpeg\\">
+                <dcterms:isFormatOf>https://example.com/hello-world.jpg</dcterms:isFormatOf>
+            </media:content>
         </item>
     </channel>
 </rss>"
@@ -39,7 +42,7 @@ exports[`rss 2.0 should generate a valid feed 1`] = `
 
 exports[`rss 2.0 should generate a valid feed with audio 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
-<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
+<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:dcterms=\\"http://purl.org/dc/terms/\\" xmlns:media=\\"http://search.yahoo.com/mrss/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
     <channel>
         <title>Feed Title</title>
         <link>http://example.com/</link>
@@ -68,7 +71,10 @@ exports[`rss 2.0 should generate a valid feed with audio 1`] = `
             <author>joesmith@example.com (Joe Smith)</author>
             <category>Grateful Dead</category>
             <category domain=\\"http://www.fool.com/cusips\\">MSFT</category>
-            <enclosure url=\\"https://example.com/hello-world.jpg\\" length=\\"0\\" type=\\"image/jpg\\"/>
+            <enclosure length=\\"12665\\" type=\\"image/jpeg\\" url=\\"https://example.com/hello-world.jpg\\"/>
+            <media:content url=\\"https://example.com/hello-world.jpg\\" type=\\"image/jpeg\\">
+                <dcterms:isFormatOf>https://example.com/hello-world.jpg</dcterms:isFormatOf>
+            </media:content>
         </item>
         <item>
             <title><![CDATA[Hello World]]></title>
@@ -81,7 +87,9 @@ exports[`rss 2.0 should generate a valid feed with audio 1`] = `
             <author>joesmith@example.com (Joe Smith)</author>
             <category>Grateful Dead</category>
             <category domain=\\"http://www.fool.com/cusips\\">MSFT</category>
-            <enclosure length=\\"12665\\" type=\\"image/jpg\\" url=\\"https://example.com/hello-world.jpg\\"/>
+            <media:content url=\\"https://example.com/hello-world.jpg\\" type=\\"image/jpeg\\">
+                <dcterms:isFormatOf>https://example.com/hello-world.jpg</dcterms:isFormatOf>
+            </media:content>
         </item>
         <item>
             <title><![CDATA[Hello World]]></title>
@@ -107,7 +115,7 @@ exports[`rss 2.0 should generate a valid feed with audio 1`] = `
             <author>joesmith@example.com (Joe Smith)</author>
             <category>Grateful Dead</category>
             <category domain=\\"http://www.fool.com/cusips\\">MSFT</category>
-            <enclosure length=\\"12665\\" type=\\"audio/mpeg\\" url=\\"https://example.com/hello-world.mp3\\"/>
+            <enclosure length=\\"0\\" type=\\"audio/mpeg\\" url=\\"https://example.com/hello-world.mp3\\" isFormatOf=\\"https://example.com/hello-world\\"/>
         </item>
     </channel>
 </rss>"
@@ -115,7 +123,7 @@ exports[`rss 2.0 should generate a valid feed with audio 1`] = `
 
 exports[`rss 2.0 should generate a valid feed with enclosure 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
-<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
+<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:dcterms=\\"http://purl.org/dc/terms/\\" xmlns:media=\\"http://search.yahoo.com/mrss/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
     <channel>
         <title>Feed Title</title>
         <link>http://example.com/</link>
@@ -144,7 +152,10 @@ exports[`rss 2.0 should generate a valid feed with enclosure 1`] = `
             <author>joesmith@example.com (Joe Smith)</author>
             <category>Grateful Dead</category>
             <category domain=\\"http://www.fool.com/cusips\\">MSFT</category>
-            <enclosure url=\\"https://example.com/hello-world.jpg\\" length=\\"0\\" type=\\"image/jpg\\"/>
+            <enclosure length=\\"12665\\" type=\\"image/jpeg\\" url=\\"https://example.com/hello-world.jpg\\"/>
+            <media:content url=\\"https://example.com/hello-world.jpg\\" type=\\"image/jpeg\\">
+                <dcterms:isFormatOf>https://example.com/hello-world.jpg</dcterms:isFormatOf>
+            </media:content>
         </item>
         <item>
             <title><![CDATA[Hello World]]></title>
@@ -157,7 +168,9 @@ exports[`rss 2.0 should generate a valid feed with enclosure 1`] = `
             <author>joesmith@example.com (Joe Smith)</author>
             <category>Grateful Dead</category>
             <category domain=\\"http://www.fool.com/cusips\\">MSFT</category>
-            <enclosure length=\\"12665\\" type=\\"image/jpg\\" url=\\"https://example.com/hello-world.jpg\\"/>
+            <media:content url=\\"https://example.com/hello-world.jpg\\" type=\\"image/jpeg\\">
+                <dcterms:isFormatOf>https://example.com/hello-world.jpg</dcterms:isFormatOf>
+            </media:content>
         </item>
         <item>
             <title><![CDATA[Hello World]]></title>
@@ -178,7 +191,7 @@ exports[`rss 2.0 should generate a valid feed with enclosure 1`] = `
 
 exports[`rss 2.0 should generate a valid feed with image properties 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
-<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
+<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:dcterms=\\"http://purl.org/dc/terms/\\" xmlns:media=\\"http://search.yahoo.com/mrss/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
     <channel>
         <title>Feed Title</title>
         <link>http://example.com/</link>
@@ -207,7 +220,10 @@ exports[`rss 2.0 should generate a valid feed with image properties 1`] = `
             <author>joesmith@example.com (Joe Smith)</author>
             <category>Grateful Dead</category>
             <category domain=\\"http://www.fool.com/cusips\\">MSFT</category>
-            <enclosure url=\\"https://example.com/hello-world.jpg\\" length=\\"0\\" type=\\"image/jpg\\"/>
+            <enclosure length=\\"12665\\" type=\\"image/jpeg\\" url=\\"https://example.com/hello-world.jpg\\"/>
+            <media:content url=\\"https://example.com/hello-world.jpg\\" type=\\"image/jpeg\\">
+                <dcterms:isFormatOf>https://example.com/hello-world.jpg</dcterms:isFormatOf>
+            </media:content>
         </item>
         <item>
             <title><![CDATA[Hello World]]></title>
@@ -220,7 +236,9 @@ exports[`rss 2.0 should generate a valid feed with image properties 1`] = `
             <author>joesmith@example.com (Joe Smith)</author>
             <category>Grateful Dead</category>
             <category domain=\\"http://www.fool.com/cusips\\">MSFT</category>
-            <enclosure length=\\"12665\\" type=\\"image/jpg\\" url=\\"https://example.com/hello-world.jpg\\"/>
+            <media:content url=\\"https://example.com/hello-world.jpg\\" type=\\"image/jpeg\\">
+                <dcterms:isFormatOf>https://example.com/hello-world.jpg</dcterms:isFormatOf>
+            </media:content>
         </item>
     </channel>
 </rss>"
@@ -228,7 +246,7 @@ exports[`rss 2.0 should generate a valid feed with image properties 1`] = `
 
 exports[`rss 2.0 should generate a valid feed with video 1`] = `
 "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
-<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
+<rss version=\\"2.0\\" xmlns:dc=\\"http://purl.org/dc/elements/1.1/\\" xmlns:content=\\"http://purl.org/rss/1.0/modules/content/\\" xmlns:dcterms=\\"http://purl.org/dc/terms/\\" xmlns:media=\\"http://search.yahoo.com/mrss/\\" xmlns:atom=\\"http://www.w3.org/2005/Atom\\">
     <channel>
         <title>Feed Title</title>
         <link>http://example.com/</link>
@@ -256,7 +274,7 @@ exports[`rss 2.0 should generate a valid feed with video 1`] = `
             <author>joesmith@example.com (Joe Smith)</author>
             <category>Grateful Dead</category>
             <category domain=\\"http://www.fool.com/cusips\\">MSFT</category>
-            <enclosure url=\\"https://example.com/hello-world.mp4\\" length=\\"0\\" type=\\"video/mp4\\"/>
+            <enclosure length=\\"0\\" type=\\"video/mp4\\" url=\\"https://example.com/hello-world.mp4\\" isFormatOf=\\"https://example.com/hello-world\\"/>
         </item>
     </channel>
 </rss>"

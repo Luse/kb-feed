@@ -94,7 +94,11 @@ sampleFeed.addItem({
     },
   ],
   date: updated,
-  image: "https://example.com/hello-world.jpg",
+  image: {
+    url: "https://example.com/hello-world.jpg",
+    type: "image/jpeg",
+    isFormatOf: "https://example.com/hello-world"
+  },
   enclosure: { url: "https://example.com/hello-world.jpg", length: 12665, type: "image/jpeg" },
   published,
 });
