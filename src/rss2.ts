@@ -210,7 +210,6 @@ export default (ins: Feed) => {
           url: entry.image.url,
           type: entry.image.type,
         },
-        'dcterms:isFormatOf': { _text: entry.image.url },
       }
     }
 
