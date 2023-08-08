@@ -11,6 +11,7 @@ export interface Item {
   guid?: string;
 
   image?: Media;
+  images?: Media[]
   audio?: Media;
   video?: Media;
   enclosure?: Enclosure;

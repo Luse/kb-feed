@@ -213,6 +213,22 @@ export default (ins: Feed) => {
       }
     }
 
+    if (entry.images) {
+      if (!item['media:content']) {
+        item['media:content'] = [];
+      }
+      else {
+        item['media:content'] = [item['media:content']];
+      }
+      entry.images.map((image) => {
+        item['media:content'].push({
+          _attributes: {
+            url: image.url,
+            type: image.type,
+          },
+        });
+      });
+    }
     if (entry.audio) {
       item.enclosure = formatEnclosure(entry.audio, "audio");
     }
